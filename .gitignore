@@ -1,5 +1,5 @@
 *~
 .*~
-report.out
-report.aux
-report.log
+*.out
+*.aux
+*.log
