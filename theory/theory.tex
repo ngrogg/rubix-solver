@@ -19,9 +19,37 @@
 \begin{document}
 \maketitle
 \section{Introduction}
-It is my goal to apply group theory and search techniques from A.I. to study techniques to solve and and solutions to the rubik's cube.
+It is my goal to apply group theory and search techniques from A.I. to study techniques to find solutions to the Rubik's cube.
 
 Currently the \href{https://en.wikipedia.org/wiki/Rubik\%27s\_Cube\_group}{wikipedia page} and this \href{https://www.quora.com/Group-Theory-mathematics/Why-are-commutators-useful-for-solving-permutation-puzzles/answer/Mark-Eichenlaub}{article} are my primary research leads.
 
-Ultimately I would like to be able to build an environment that can easily facilitate the development of differnt solution seeking methods.
+Ultimately I would like to be able to build an environment that can easily facilitate the development of different solution seeking methods.
+\section{What is a Group}
+A group is a set of objects with method of combining them called the group operation $\langle G,\cdot\rangle$. The set cannot be empty and the group operation must obey 4 conditions:
+\begin{itemize}
+    \item For all $a,b\in G$,
+        \begin{align*}
+            a\cdot b\in G
+        \end{align*}
+        The group operation is \textbf{closed} in $G$.
+    \item For all $a,b,c\in G$,
+        \begin{align*}
+            a\cdot(b\cdot c)=(a\cdot b)\cdot c.
+        \end{align*}
+        The group operation is \textbf{associative} in $G$.
+    \item There exists $e\in G$ such that for any $a\in G$,
+        \begin{align*}
+            a\cdot e=a=e\cdot a.
+        \end{align*}
+        There exists an \textbf{identity} element of the binary operation in $G$.
+    \item For all $a\in G$ there exists  $a^{-1}\in G$ such that
+        \begin{align*}
+            a\cdot a^{-1}=e=a^{-1}\cdot a.
+        \end{align*}
+        There exists \textbf{inverse} elements of the binary operation in $G$.
+\end{itemize}
+\section{The Rubik's Cube Group}
+It turns out that the Rubik's cube puzzle forms a group. The set consists of the physical manipulations you can do to the puzzle and the binary operation is the composition of those manipulations.\footnote{The turns are also associative, suppose $\tau$ and $\sigma$ are some turns of the cube you'll find that $(\sigma\tau\tau^{-1})\sigma^{-1}=\sigma(\tau\tau^{-1}\sigma^{-1})$.}
+to to 
+Put plainly if you turn a turn a Rubik's cube it results in a cube (closure), the ``identity'' is not manipulating the cube, and each turn and be undone (inverse). With these realizations we will build up a theory to describe manipulations (elements of the groups).
 \end{document}
