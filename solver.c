@@ -3,6 +3,8 @@
 
 // This is a manual solver for now
 // Function to rotate cube
+void alterArray(int s, int r, char d, char **array1, char **array2, char **array3, char **array4){
+}
 
 // Menu function
 char menu(){
@@ -45,6 +47,10 @@ int main(){
 			scanf("%d", &row);
 			printf("Select a direction (L, R, U, D) to rotate\n");
 			scanf("%c", &direction);
+
+			// Choose array(s) based on input
+			
+			alterArray(side,row,direction,,,,);
 		}
 
 		// Print out Rubix Cube
@@ -64,6 +70,7 @@ int main(){
 			printf("|%c|%c|%c|%c%c/     |%c|%c|%c|%c%c/\n",s1[3],s1[4],s1[5],s5[3],s5[7],s4[3],s4[4],s4[5],s6[3],s6[7]);
 			printf("|%c|%c|%c|%c/      |%c|%c|%c|%c/\n",s1[6],s1[7],s1[8],s5[6],s4[6],s4[7],s4[8],s6[6]);
 		}
+
 		// Bad choice
 		else {
 			printf("Invalid command\n");
