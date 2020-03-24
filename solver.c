@@ -9,8 +9,10 @@
 // Menu function
 char menu(){
 	char option;
-	printf("Enter an option");
-	printf("Enter 'r' to rotate ");
+	printf("Enter an option\n");
+	printf("Enter 'r' to rotate\n");
+	printf("Enter 'q' to quit\n");
+	scanf("%c",&option);
 	return option;
 }
 
@@ -47,3 +49,4 @@ int main(){
 	}
 	
 	return 0;
+}
