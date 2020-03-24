@@ -2,8 +2,11 @@
 #include <stdio.h>
 
 // This is a manual solver for now
+
 // Function to rotate cube
 void alterArray(int s, int r, char d, char **array1, char **array2, char **array3, char **array4){
+	// Create temp arrays to for placeholders
+	// Alter arrays based on passed values (side, row, direction)
 }
 
 // Menu function
@@ -13,7 +16,7 @@ char menu(){
 	printf("Enter 'o' to output the cube's current configuration\n");
 	printf("Enter 'r' to rotate the cube\n");
 	printf("Enter 'q' to quit\n");
-	scanf("%c",&option);
+	scanf(" %c",&option);
 	return option;
 }
 
@@ -39,19 +42,20 @@ int main(){
 			printf("exiting");
 		}
 
-		// Alter Rubix Cube
+		// Alter Rubix Cube 
 		else if(choice == 'r'){
+			printf("There is currently no error checking, be careful!");
 			printf("Select a side (1 -> 6) to rotate\n");
 			scanf("%d", &side);
 			printf("Select a row (1 -> 3) to rotate\n");
 			scanf("%d", &row);
 			printf("Select a direction (L, R, U, D) to rotate\n");
-			scanf("%c", &direction);
+			scanf(" %c", &direction);
 
-			// Choose array(s) based on input
-			
-			alterArray(side,row,direction,,,,);
+			// Choose array(s) based on input, and call alterArray function
+			//alterArray(side,row,direction,,,,);
 		}
+		
 
 		// Print out Rubix Cube
 		// Show ascii rubix cube using this format
@@ -77,6 +81,5 @@ int main(){
 		}
 		choice = menu();
 	}
-	
 	return 0;
 }
