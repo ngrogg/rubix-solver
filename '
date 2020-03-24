@@ -4,6 +4,8 @@
 // This is a manual solver for now
 // Function to rotate cube
 
+// Function to output cube in current iteration
+
 // Menu function
 char menu(){
 	char option;
