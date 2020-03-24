@@ -1,9 +1,18 @@
 // Include libraries
 #include <stdio.h>
 
+// This is a manual solver for now
 // Function to alter cube arrays
+
 // Function to output cube in current iteration
+
 // Menu function
+char menu(){
+	char option;
+	printf("Enter an option");
+	printf("Enter 'r' to rotate ");
+	return option;
+}
 
 int main(){
 	// Create arrays for each side
@@ -32,6 +41,9 @@ int main(){
 	printf("|%c|%c|%c|%c%c/     |%c|%c|%c|%c%c/\n",s1[3],s1[4],s1[5],s5[3],s5[7],s4[3],s4[4],s4[5],s6[3],s6[7]);
 	printf("|%c|%c|%c|%c/      |%c|%c|%c|%c/\n",s1[6],s1[7],s1[8],s5[6],s4[6],s4[7],s4[8],s6[6]);
 
-
+	char choice = menu();
+	while (choice != 'q'){
+		choice = menu();
+	}
 	
 	return 0;
