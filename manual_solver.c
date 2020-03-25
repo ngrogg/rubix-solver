@@ -1,7 +1,7 @@
 // Include libraries
 #include <stdio.h>
 
-// This is a manual solver for now
+// This is a manual solver for a Rubix Cube
 
 // Function to rotate cube
 void alterArray(int s, int r, char d, char *array1, char *array2, char *array3, char *array4){
