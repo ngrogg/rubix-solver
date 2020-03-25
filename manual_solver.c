@@ -7,6 +7,8 @@
 void alterArray(int s, int r, char d, char **array1, char **array2, char **array3, char **array4){
 	// Create temp arrays to for placeholders
 	// Alter arrays based on passed values (side, row, direction)
+	// L,R change values based on row
+	// U,D change values based on columns
 }
 
 // Menu function
@@ -44,16 +46,62 @@ int main(){
 
 		// Alter Rubix Cube 
 		else if(choice == 'r'){
-			printf("There is currently no error checking, be careful!");
+			printf(" /2/|   /3/|");
+			printf("|1|5|  |4|6|");
 			printf("Select a side (1 -> 6) to rotate\n");
 			scanf("%d", &side);
-			printf("Select a row (1 -> 3) to rotate\n");
+			printf("Select a row/column (1 -> 3) to rotate\n");
 			scanf("%d", &row);
 			printf("Select a direction (L, R, U, D) to rotate\n");
 			scanf(" %c", &direction);
 
 			// Choose array(s) based on input, and call alterArray function
-			//alterArray(side,row,direction,,,,);
+			// Also includes validation
+			// I'll figure out a nicer way to do this later... NG
+			if ((side == 1 || side == 5) || (side == 4 || side == 6)){
+				// Logic to handle directions
+				if (direction == 'L' || direction == 'R'){
+					// Call function to alter array
+					alterArray(side,row,direction,s1,s5,s4,s6);
+				}
+				// Else If direction is UD, choose sides based on 
+				else if (direction == 'U' || direction == 'D'){
+					if(side == 1 || side == 4){
+						// Call function to alter array
+						alterArray(side,row,direction,s1,s2,s3,s4);
+					}
+					// Else side is 5 or 6
+					else {
+						// Call function to alter array
+						alterArray(side,row,direction,s2,s3,s5,s6);
+					}
+				}
+				else{
+					printf("Invalid direction given")
+				}
+			}
+			else if (side == 2 || side == 3){
+				// Logic to handle directions
+				// If direction is LR, use sides 1,2,3,4
+				if (direction == 'L' || direction == 'R'){
+					// Call function to alter array
+					alterArray(side,row,direction,s5,s6,s3,s4);
+				}
+				// Else If direction is UD
+				else (direction == 'U' || direction == 'D'){
+					// Call function to alter array
+					alterArray(side,row,direction,s5,s6,s1,s2);
+				}
+				// Else direction is bad
+				else{
+					printf("Invalid direction given")
+				}
+				
+			}
+			else {
+				printf("Invalid options chosen");
+			}
+
 		}
 		
 
