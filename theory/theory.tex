@@ -1,8 +1,9 @@
 \documentclass{article}
-\usepackage{amsmath, amssymb, amsthm, graphicx, enumerate, siunitx, textgreek}
+\usepackage{amsmath, amssymb, amsthm, graphicx, enumerate, siunitx, textgreek, fontawesome}
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
+    linkcolor=black,
     urlcolor=blue}
 
 
@@ -49,23 +50,45 @@ A group is a set of objects with method of combining them called the group opera
 It turns out that the Rubik's cube puzzle forms a group.
 The set consists of the physical manipulations you can do to the puzzle and the binary operation is the composition of those manipulations.
 \footnote{The turns are also associative, suppose $\tau$ and $\sigma$ are some turns of the cube you'll find that $(\sigma\tau\tau^{-1})\sigma^{-1}=\sigma(\tau\tau^{-1}\sigma^{-1})$.}
-to to 
-Put plainly if you turn a turn a Rubik's cube it results in a cube (closure), the ``identity'' is not manipulating the cube, and each turn and be undone (inverse). With these realizations we will build up a theory to describe manipulations (elements of the groups).
+To put it plainly if you turn a turn a Rubik's cube it results in a cube (closure), the ``identity'' is not manipulating the cube, and each turn and be undone (inverse). With these realizations we will build up a theory to describe manipulations (elements of the groups).
 
 \bigskip
 Before continuing I would like to note that I am a math enthusiast and not a math professor and will be rigorous as I can. However I will not be proving everything I do.
 
 \subsection{Notation}
-From the group theoretic point of view the coloring and orientation of a Rubik's cube do not matter only the way in which we manipulate the cube.
-Following from this we will define two major groups of faces, the \textbf{vertical} faces and the \textbf{horizontal} faces denoted $V_{n}$ and $H_{n}$ respectively. The subscript $n$ describes which layer of the cube the face makes up, $V_{1}$ if the cube is sitting on a table $V_{1}$ is the layer that touch the table top. The orientation of the horizontal face is picked arbitrarily any of the faces that sits orthogonal to $V_{n}$ will do.
+From the group theoretic point of view the coloring and orientation of a Rubik's cube do not matter. %only the way in which we manipulate the cube.
+With this we will define two major groups of faces, the \textbf{vertical} faces and the \textbf{horizontal} faces denoted $V_{n}$ and $H_{n}$ respectively.
+There are 3 vertical and 3 horizontal faces,
+The subscript $n$ describes which layer of the cube the face makes up, $V_{1}$ if the cube is sitting on a table $V_{1}$ is the layer that touch the table top.
+The orientation of the horizontal face is picked arbitrarily any of the faces that sits orthogonal to $V_{n}$ will do.
 
 We now can interpret $V_{n}$ to be a $90^{\circ}$ clockwise rotation of $V_{n}$ and $H_{n}$ to be a $90^{\circ}$ clockwise rotation of $H_{n}$, their inverses $V_{n}^{-1},H_{n}^{-1}$are counter-clockwise turns.
 
 
-With this language we can now what the online Rubik's cube community calls algorithms, although we now know these to be compositions of the elements in of our group we will continue to use this it in this manner for the time being. The following is a popular algorithm to rotate the centers of a opposing hemispheres of the cube.
+With this language we can now what the online Rubik's cube community calls algorithms, although we now know these to be compositions of the elements in of our group we will continue to use this it in this manner for the time being.
+% \footnote{
+%     This algorithm is applied left to right.
+%     This follows from the view that each element of the group is a function acting on the Rubik's cube since functions are applied right to left.
+%     This is explored more in the next section.
+% }
+\subsection{Algorithms and Algebra with the Rubik's Cube Group}
+The following is a popular algorithm to rotate the centers of a opposing hemispheres of the cube.
+\begin{align}
+    H_{2}V_{2}H_{2}V_{2}H_{2}V_{2}H_{2}V_{2} \label{eq1}
+\end{align}
+Because the binary operation is composition the algorithm is applied right-to-left. If this doesn't feel quite right hopefully writing the group members will function notation will convince you. Suppose we wanted to do $V_{2}$ and then $H_{1}$ this is denoted,
 \begin{align*}
-    H_{2}V_{2}H_{2}V_{2}H_{2}V_{2}H_{2}V_{2}
+    V_{2}(H_{1}(\text{\faCube})).
 \end{align*}
+
+\subsubsection{Exponent Rules}
+Recall our algorithm described in (\ref{eq1}), it is a very simple two step string of moves that is repeated 3 times, we can use exponents to describe it compactly,
+\begin{align}
+    H_{2}V_{2}H_{2}V_{2}H_{2}V_{2}H_{2}V_{2}=(H_{2}V_{2})^{3}
+\end{align}
+The usually exponent rules hold however it is critical that you under stand that the exponent is simple short hand for repeated applications of the group operation (composition).
+Usually $(ab)^2=a^2b^2$ however this is not the case with $H_{n}$ and $V_{n}$.
+\footnote{This occurs because the Rubik's cube group is not an abelian group $ab\neq ba$.}
 \section{Sources}
 \begin{itemize}
     \item \url{https://en.wikipedia.org/wiki/Rubik\%27s\_Cube\_group}
