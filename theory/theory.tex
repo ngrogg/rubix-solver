@@ -19,11 +19,8 @@
 \begin{document}
 \maketitle
 \section{Introduction}
-It is my goal to apply group theory and search techniques from A.I. to study techniques to find solutions to the Rubik's cube.
+The goal of this document is to build up a framework that links group theory to techniques in artificial intelligence, first search techniques, with luck more sophisticated approaches later.
 
-Currently the \href{https://en.wikipedia.org/wiki/Rubik\%27s\_Cube\_group}{wikipedia page} and this \href{https://www.quora.com/Group-Theory-mathematics/Why-are-commutators-useful-for-solving-permutation-puzzles/answer/Mark-Eichenlaub}{article} are my primary research leads.
-
-Ultimately I would like to be able to build an environment that can easily facilitate the development of different solution seeking methods.
 \section{What is a Group}
 A group is a set of objects with method of combining them called the group operation $\langle G,\cdot\rangle$. The set cannot be empty and the group operation must obey 4 conditions:
 \begin{itemize}
@@ -49,7 +46,21 @@ A group is a set of objects with method of combining them called the group opera
         There exists \textbf{inverse} elements of the binary operation in $G$.
 \end{itemize}
 \section{The Rubik's Cube Group}
-It turns out that the Rubik's cube puzzle forms a group. The set consists of the physical manipulations you can do to the puzzle and the binary operation is the composition of those manipulations.\footnote{The turns are also associative, suppose $\tau$ and $\sigma$ are some turns of the cube you'll find that $(\sigma\tau\tau^{-1})\sigma^{-1}=\sigma(\tau\tau^{-1}\sigma^{-1})$.}
+It turns out that the Rubik's cube puzzle forms a group.
+The set consists of the physical manipulations you can do to the puzzle and the binary operation is the composition of those manipulations.
+\footnote{The turns are also associative, suppose $\tau$ and $\sigma$ are some turns of the cube you'll find that $(\sigma\tau\tau^{-1})\sigma^{-1}=\sigma(\tau\tau^{-1}\sigma^{-1})$.}
 to to 
 Put plainly if you turn a turn a Rubik's cube it results in a cube (closure), the ``identity'' is not manipulating the cube, and each turn and be undone (inverse). With these realizations we will build up a theory to describe manipulations (elements of the groups).
+
+
+Before continuing I would like to note that I am a math enthusiast and not a math professor and will be rigorous as I can. However I will not be proving everything I do.
+
+\subsection{Notation}
+
+\section{Sources}
+\begin{itemize}
+    \item \url{https://en.wikipedia.org/wiki/Rubik\%27s\_Cube\_group}
+    \item \url{https://www.quora.com/Group-Theory-mathematics/Why-are-commutators-useful-for-solving-permutation-puzzles/answer/Mark-Eichenlaub}
+    \item \url{http://kociemba.org/cube.htm}
+\end{itemize}
 \end{document}
