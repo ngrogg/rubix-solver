@@ -22,6 +22,8 @@ char menu(){
 	return option;
 }
 
+// Function to shuffle the arrays
+
 int main(){
 	// Create arrays for each side
 	// Red, Yello, White, Green, Blue, Orange
@@ -32,12 +34,15 @@ int main(){
 	char s5[9] = {'B','B','B','B','B','B','B','B','B'};
 	char s6[9] = {'O','O','O','O','O','O','O','O','O'};
 
+	// Shuffle the arrays
+
 
 	// Declare variables
 	char choice = menu();
 	int row, side;
 	char direction;
 	
+	// Run program in a while loop, this simulates a menu
 	while (choice != 'q'){
 		// Exit
 		if(choice == 'q'){
