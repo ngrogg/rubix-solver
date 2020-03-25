@@ -4,7 +4,7 @@
 // This is a manual solver for now
 
 // Function to rotate cube
-void alterArray(int s, int r, char d, char **array1, char **array2, char **array3, char **array4){
+void alterArray(int s, int r, char d, char *array1, char *array2, char *array3, char *array4){
 	// Create temp arrays to for placeholders
 	// Alter arrays based on passed values (side, row, direction)
 	// L,R change values based on row
@@ -46,8 +46,8 @@ int main(){
 
 		// Alter Rubix Cube 
 		else if(choice == 'r'){
-			printf(" /2/|   /3/|");
-			printf("|1|5|  |4|6|");
+			printf(" /2/|   /3/|\n");
+			printf("|1|5|  |4|6|\n");
 			printf("Select a side (1 -> 6) to rotate\n");
 			scanf("%d", &side);
 			printf("Select a row/column (1 -> 3) to rotate\n");
@@ -77,7 +77,7 @@ int main(){
 					}
 				}
 				else{
-					printf("Invalid direction given")
+					printf("Invalid direction given");
 				}
 			}
 			else if (side == 2 || side == 3){
@@ -85,16 +85,16 @@ int main(){
 				// If direction is LR, use sides 1,2,3,4
 				if (direction == 'L' || direction == 'R'){
 					// Call function to alter array
-					alterArray(side,row,direction,s5,s6,s3,s4);
+					alterArray(side,row,direction,s2,s3,s5,s6);
 				}
 				// Else If direction is UD
-				else (direction == 'U' || direction == 'D'){
+				else if(direction == 'U' || direction == 'D'){
 					// Call function to alter array
-					alterArray(side,row,direction,s5,s6,s1,s2);
+					alterArray(side,row,direction,s1,s2,s3,s4);
 				}
 				// Else direction is bad
 				else{
-					printf("Invalid direction given")
+					printf("Invalid direction given");
 				}
 				
 			}
@@ -103,7 +103,6 @@ int main(){
 			}
 
 		}
-		
 
 		// Print out Rubix Cube
 		// Show ascii rubix cube using this format
