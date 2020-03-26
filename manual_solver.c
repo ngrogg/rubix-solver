@@ -23,6 +23,9 @@ char menu(){
 }
 
 // Function to shuffle the arrays
+void shuffle(char *array1, char *array2, char *array3, char *array4, char *array5, char *array6){
+	// Use RNG to swap array values
+}
 
 int main(){
 	// Create arrays for each side
@@ -35,6 +38,7 @@ int main(){
 	char s6[9] = {'O','O','O','O','O','O','O','O','O'};
 
 	// Shuffle the arrays
+	shuffle(s1,s2,s3,s4,s5,s6);
 
 
 	// Declare variables
@@ -57,6 +61,15 @@ int main(){
 			scanf("%d", &side);
 			printf("Select a row/column (1 -> 3) to rotate\n");
 			scanf("%d", &row);
+			// I couldn't figure out how to fit validation into the logic below... NG
+			if (row > 3 || row < 1){
+				printf("Invalid option");
+				while(row > 3 || row < 1){
+				printf("Select a row/column (1 -> 3) to rotate\n");
+				scanf("%d", &row);
+				}
+			}
+			
 			printf("Select a direction (L, R, U, D) to rotate\n");
 			scanf(" %c", &direction);
 
