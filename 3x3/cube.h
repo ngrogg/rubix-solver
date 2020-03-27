@@ -2,12 +2,13 @@
 
 typedef struct cube_tile {
     // struct to represent a tile face of the Rubik cube
-    struct cube_tile *up_vertical;
-    struct cube_tile *up_horizontal;
-    struct cube_tile *across;
+    // if this abstraction work out I will recreate the
+    // drawing the explains these pointers
     struct cube_tile *right;
     struct cube_tile *left;
-    struct cube_tile *down;
+    struct cube_tile *across;
+    struct cube_tile *right_inv;
+    struct cube_tile *left_inv;
     char color;
 } cube_tile;
 
@@ -15,14 +16,19 @@ cube_tile* Tile(char color) {
     // constructor function for cube_tile struct
     cube_tile *temp = NULL;
     temp = (cube_tile *) malloc(sizeof(cube_tile));
-    temp->up_vertical = NULL;
-    temp->up_horizontal = NULL;
     temp->right = NULL;
-    temp->down = NULL;
     temp->left = NULL;
+    temp->across = NULL;
+    temp->right_inv = NULL;
+    temp->left_inv = NULL;
     temp->color = color;
 
     return temp;
+}
+
+void delete_Tile(cube_tile *tile) {
+    // destructor function for the cube_tile struct
+    free(tile);
 }
 
 typedef struct face {
@@ -85,6 +91,20 @@ face *Face(char color) {
     return temp;
 }
 
+void delete_Face(face *cube_face) {
+    // destructor function for the face struct
+    delete_Tile(cube_face->a);
+    delete_Tile(cube_face->b);
+    delete_Tile(cube_face->c);
+    delete_Tile(cube_face->d);
+    delete_Tile(cube_face->e);
+    delete_Tile(cube_face->f);
+    delete_Tile(cube_face->g);
+    delete_Tile(cube_face->h);
+
+    free(cube_face);
+}
+
 typedef struct rubik_cube {
     // struct to represent the Rubik cube
     face *red_face;
@@ -100,4 +120,9 @@ rubik_cube *Rubik_Cube() {
     rubik_cube *cube = Rubik_Cube();
     // TODO
     return cube;
+}
+
+void delete_Rubik_Cube(rubik_cube *cube) {
+    // destructor function for the  rubik_cube struct
+    // TODO
 }
