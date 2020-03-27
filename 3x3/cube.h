@@ -1,21 +1,21 @@
 #include <stdlib.h>
 
-typedef struct cube_tile {
+typedef struct tile {
     // struct to represent a tile face of the Rubik cube
     // if this abstraction work out I will recreate the
     // drawing the explains these pointers
-    struct cube_tile *right;
-    struct cube_tile *left;
-    struct cube_tile *across;
-    struct cube_tile *right_inv;
-    struct cube_tile *left_inv;
+    struct tile *right;
+    struct tile *left;
+    struct tile *across;
+    struct tile *right_inv;
+    struct tile *left_inv;
     char color;
-} cube_tile;
+} tile;
 
-cube_tile* Tile(char color) {
-    // constructor function for cube_tile struct
-    cube_tile *temp = NULL;
-    temp = (cube_tile *) malloc(sizeof(cube_tile));
+tile* Tile(char color) {
+    // constructor function for tile struct
+    tile *temp = NULL;
+    temp = (tile *) malloc(sizeof(tile));
     temp->right = NULL;
     temp->left = NULL;
     temp->across = NULL;
@@ -26,9 +26,9 @@ cube_tile* Tile(char color) {
     return temp;
 }
 
-void delete_Tile(cube_tile *tile) {
-    // destructor function for the cube_tile struct
-    free(tile);
+void delete_Tile(tile *_tile) {
+    // destructor function for the tile struct
+    free(_tile);
 }
 
 typedef struct face {
@@ -39,14 +39,14 @@ typedef struct face {
     //  are the tiles that make up the face they are doubly linked around 
     //  the perimeter using the left and right pointers and across the 
     //  center using the across pointers.
-    cube_tile *a;
-    cube_tile *b;
-    cube_tile *c;
-    cube_tile *d;
-    cube_tile *e;
-    cube_tile *f;
-    cube_tile *g;
-    cube_tile *h;
+    tile *a;
+    tile *b;
+    tile *c;
+    tile *d;
+    tile *e;
+    tile *f;
+    tile *g;
+    tile *h;
     char color;
 } face;
 
