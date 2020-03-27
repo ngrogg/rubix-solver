@@ -2,7 +2,7 @@
 
 typedef struct tile {
     // struct to represent a tile face of the Rubik cube
-    // if this abstraction work out I will recreate the
+    // if this abstraction works out I will digitally recreate the
     // drawing the explains these pointers
     struct tile *right;
     struct tile *left;
