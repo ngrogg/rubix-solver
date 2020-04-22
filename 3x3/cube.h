@@ -7,8 +7,9 @@ typedef struct tile {
     struct tile *right;
     struct tile *left;
     struct tile *across;
-    struct tile *right_inv;
-    struct tile *left_inv;
+    struct tile *edge;
+    struct tile *right_edge;
+    struct tile *left_edge;
     char color;
 } tile;
 
@@ -19,8 +20,9 @@ tile* Tile(char color) {
     temp->right = NULL;
     temp->left = NULL;
     temp->across = NULL;
-    temp->right_inv = NULL;
-    temp->left_inv = NULL;
+    temp->edge = NULL;
+    temp->right_edge = NULL;
+    temp->left_edge = NULL;
     temp->color = color;
 
     return temp;
@@ -117,8 +119,63 @@ typedef struct rubik_cube {
 
 rubik_cube *Rubik_Cube() {
     // constructor function for rubik_cube struct
-    rubik_cube *cube = Rubik_Cube();
-    // TODO
+    rubik_cube *cube = NULL;
+    cube = (rubik_cube *) malloc(sizeof(rubik_cube));
+    face *red_face = Face('R');
+    face *blue_face = Face('B');
+    face *white_face = Face('W');
+    face *green_face = Face('G');
+    face *yellow_face = Face('Y');
+    face *orange_face = Face('O');
+
+    red_face->a->left_edge = blue_face->g;  // attach the blue face to the red face
+    red_face->b->edge = blue_face->f;
+    red_face->c->right_edge = blue_face->e;
+
+    blue_face->g->right_edge = red_face->a;  // attach the red face to the blue face
+    blue_face->f->edge = red_face->b;
+    blue_face->e->left_edge = red_face->c;
+
+    red_face->c->left_edge = white_face->g;  // attach the white face to the red face
+    red_face->d->edge = white_face->f;
+    red_face->e->right_edge = white_face->e;
+
+    white_face->g->right_edge = red_face->c;  // attach the red face to the white face
+    white_face->f->edge = red_face->d;
+    white_face->e->left_edge = red_face->e;
+
+    red_face->e->left_edge = green_face->g;  // attach the green face to the red face
+    red_face->f->edge = green_face->f;
+    red_face->g->right_edge = green_face->e;
+
+    green_face->g->right_edge = red_face->e;  // attach the red face to the green face
+    green_face->f->edge = red_face->f;
+    green_face->e->left_edge = red_face->g;
+
+    red_face->g->left_edge = yellow_face->g;  // attach the yellow face to the red face
+    red_face->h->edge = yellow_face->f;
+    red_face->a->right_edge = yellow_face->e;
+
+    yellow_face->g->right_edge = red_face->g;  // attach the red face to the yellow face
+    yellow_face->f->edge = red_face->h;
+    yellow_face->e->left_edge = red_face->a;
+
+    orange_face->a->right_edge = green_face->a; // attach the green face to the orange face
+    orange_face->b->edge = green_face->b;
+    orange_face->c->left_edge = green_face->c;
+
+    orange_face->c->right_edge = yellow_face->a;  // attach the yellow face to the orange face
+    orange_face->d->edge = yellow_face->b;
+    orange_face->e->left_edge = yellow_face->c;
+
+    orange_face->e->right_edge = blue_face->a;  // attach the blue face to the orange face
+    orange_face->f->edge = blue_face->b;
+    orange_face->g->left_edge = blue_face->c;
+
+    orange_face->g->right_edge = white_face->a;  // attach the white face to the orange face
+    orange_face->h->edge = white_face->b;
+    orange_face->a->left_edge = white_face->c;
+
     return cube;
 }
 
